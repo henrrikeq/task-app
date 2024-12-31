@@ -58,7 +58,7 @@ const AddTask = () => {
 
   return (
     <div className="img">
-      <p className="add-task-container">Add New Task</p>
+      <p className="add-task-container text-[2rem] font-semibold">Add New Task</p>
       <form onSubmit={handleSubmit} className="add-task-form">
         <div className="form-inner-container">
           <div className="form-input-container">
@@ -117,7 +117,7 @@ const AddTask = () => {
             </select>
           </div>
         </div>
-        <button className="save-button" type="submit">
+        <button className="save-button mt-3" type="submit">
           Save
         </button>
       </form>

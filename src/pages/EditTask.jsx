@@ -74,7 +74,7 @@ const EditTask = () => {
 
   return (
     <div className="img">
-      <p className="edit-task-container text-[2rem] font-semibold ml-40 mt-20">Edit Task</p>
+      <p className="edit-task-container text-[2rem] font-semibold ml-40">Edit Task</p>
       <form onSubmit={handleSubmit} className="edit-task-form">
         <div className="form-inner-container w-[50vw] h-[70vh] flex flex-col justify-center ml-40">
           <div className="form-input-container">

@@ -34,7 +34,7 @@ const ViewTask = () => {
 
   return (
     <div className="img">
-      <h2 className="text-[2rem] font-semibold flex justify-center items-center mt-20">Task Details</h2>
+      <h2 className="text-[2rem] font-semibold flex justify-center items-center">Task Details</h2>
       <div className=" view-task-container">
       <p>
         <strong>Title:</strong> {task.title}
