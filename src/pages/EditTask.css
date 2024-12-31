@@ -1,0 +1,100 @@
+.hero {
+  background-color: #f0f4f8;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+/* Edit task container styling */
+.edit-task-container {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center; /* Center align text */
+}
+
+/* Edit task form base styling */
+.edit-task-form {
+  width: 50vw;
+  margin: 0 auto;
+}
+
+/* Responsive adjustments for the form container */
+@media (max-width: 1024px) {
+  .edit-task-form {
+    width: 70vw; /* Adjust width for medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .edit-task-form {
+    width: 90vw; /* Full width on small screens */
+  }
+}
+
+/* Inner form container */
+.form-inner-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Form input containers */
+.form-input-container {
+  margin-bottom: 15px;
+}
+
+/* Form input styling */
+.form-input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+/* Error text styling */
+.error-text {
+  color: #e74c3c;
+  font-size: 12px;
+}
+
+/* Save button base styling */
+.save-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  width: auto; /* Ensure button adjusts naturally */
+}
+
+/* Button adjustments for medium screens */
+@media (max-width: 1024px) {
+  .save-button {
+    padding: 8px 12px; /* Reduce padding */
+    font-size: 14px; /* Adjust font size */
+  }
+}
+
+/* Button adjustments for small screens */
+@media (max-width: 768px) {
+  .save-button {
+    width: 100%; /* Full-width button for small screens */
+    padding: 10px; /* Adjust padding for usability */
+    font-size: 14px; /* Smaller font size */
+    text-align: center; /* Center-align text */
+  }
+}
+
+
+.img {
+  background-image: url('../assets/images/bg2.jpg'); 
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-position: center; 
+  height: 120vh; 
+  width: 100%; 
+}
+

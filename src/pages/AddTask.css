@@ -1,0 +1,98 @@
+.hero {
+  background-color: #f0f4f8;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+/* Add task container */
+.add-task-container {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center; /* Center-align for better aesthetics */
+}
+
+/* Add task form */
+.add-task-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Responsive adjustments for the form container */
+@media (max-width: 1024px) {
+  .add-task-form {
+    max-width: 80%; /* Adjust width for medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .add-task-form {
+    max-width: 95%; /* Full width for small screens */
+  }
+}
+
+/* Inner container for the form */
+.form-inner-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Input container */
+.form-input-container {
+  margin-bottom: 15px;
+}
+
+/* Form input */
+.form-input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+/* Error text */
+.error-text {
+  color: #e74c3c;
+  font-size: 12px;
+}
+
+/* Save button */
+.save-button {
+  background-color: #28a745;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px; /* Base font size */
+}
+
+/* Responsive adjustments for medium screens */
+@media (max-width: 1024px) {
+  .save-button {
+    padding: 8px 12px; /* Reduce padding */
+    font-size: 14px; /* Adjust font size */
+  }
+}
+
+/* Responsive adjustments for small screens */
+@media (max-width: 768px) {
+  .save-button {
+    width: 100%; /* Full width on small screens */
+    padding: 10px; /* Adjust padding for usability */
+    font-size: 14px; /* Adjust font size */
+    text-align: center; /* Center-align the text */
+  }
+}
+
+.img {
+  background-image: url('../assets/images/bg2.jpg'); 
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-position: center; 
+  height: 120vh; 
+  width: 100%; 
+}
+
