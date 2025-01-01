@@ -12,10 +12,12 @@ const TaskList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const tasksPerPage = 4;
 
+  // Fetch tasks from the API
   const getTasks = async () => {
     setLoading(true);
     try {
       const response = await apiGetTasks();
+      console.log("Fetched tasks:", response.data.todos); // Debugging
       if (Array.isArray(response.data.todos)) {
         setTasks(response.data.todos);
         toast.success("Tasks loaded successfully!");
@@ -34,6 +36,7 @@ const TaskList = () => {
     }
   };
 
+  // Delete a task
   const deleteTask = async (id) => {
     try {
       await apiDeleteTask(id);
@@ -47,18 +50,22 @@ const TaskList = () => {
     }
   };
 
+  // Fetch tasks on component mount
   useEffect(() => {
     getTasks();
   }, []);
 
+  // Handle loading state
   if (loading) {
     return <div>Loading...</div>;
   }
 
+  // Filter tasks based on the search query
   const filteredTasks = tasks.filter((task) =>
     task.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  // Pagination logic
   const indexOfLastTask = currentPage * tasksPerPage;
   const indexOfFirstTask = indexOfLastTask - tasksPerPage;
   const currentTasks = filteredTasks.slice(indexOfFirstTask, indexOfLastTask);
@@ -66,75 +73,75 @@ const TaskList = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div className="img" >
+    <div className="img">
       <div className="task-list-container">
-      <div>
-        <p className="task-header">Tasks</p>
-        <p className="task-subheader">List of Tasks</p>
-      </div>
+        <div>
+          <p className="task-header">Tasks</p>
+          <p className="task-subheader">List of Tasks</p>
+        </div>
 
-      <div className="search-container">
-        <input
-          type="text"
-          placeholder="Search tasks"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          className="search-input"
-        />
-      </div>
+        <div className="search-container">
+          <input
+            type="text"
+            placeholder="Search tasks"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="search-input"
+          />
+        </div>
 
-      <div className="task-container">
-        {filteredTasks.length > 0 ? (
-          currentTasks.length > 0 ? (
-            currentTasks.map((task, index) => (
-              <div key={index} className="task-item">
-                <p>Task: {task.title}</p>
-                <p>Due Date: {new Date(task.dueDate).toLocaleDateString()}</p>
-                <p>Status: {task.status}</p>
-                <div className="button-container">
-                  <Link to={`/edit/${task._id}`} className="edit-button">
-                    <FaEdit /> Edit
-                  </Link>
-                  <Link to={`/view/${task._id}`} className="view-button">
-                    <FaEye /> View
-                  </Link>
-                  <button
-                    onClick={() => deleteTask(task._id)}
-                    className="delete-button"
-                  >
-                    <FaTrash /> Delete
-                  </button>
+        <div className="task-container">
+          {filteredTasks.length > 0 ? (
+            currentTasks.length > 0 ? (
+              currentTasks.map((task, index) => (
+                <div key={index} className="task-item">
+                  <p>Task: {task.title}</p>
+                  <p>Due Date: {new Date(task.dueDate).toLocaleDateString()}</p>
+                  <p>Status: {task.status===true? "Completed" : "In Progress"}</p> {/* Conditional Status */}
+                  <div className="button-container">
+                    <Link to={`/edit/${task._id}`} className="edit-button">
+                      <FaEdit /> Edit
+                    </Link>
+                    <Link to={`/view/${task._id}`} className="view-button">
+                      <FaEye /> View
+                    </Link>
+                    <button
+                      onClick={() => deleteTask(task._id)}
+                      className="delete-button"
+                    >
+                      <FaTrash /> Delete
+                    </button>
+                  </div>
                 </div>
-              </div>
-            ))
+              ))
+            ) : (
+              <p>No tasks found on this page</p>
+            )
           ) : (
-            <p>No tasks found on this page</p>
-          )
-        ) : (
-          <p>No tasks match your search</p>
-        )}
+            <p>No tasks match your search</p>
+          )}
 
-        {filteredTasks.length > 0 && (
-          <div className="pagination">
-            {Array.from(
-              { length: Math.ceil(filteredTasks.length / tasksPerPage) },
-              (_, index) => (
-                <button
-                  key={index}
-                  onClick={() => paginate(index + 1)}
-                  className="page-button"
-                >
-                  {index + 1}
-                </button>
-              )
-            )}
-          </div>
-        )}
+          {filteredTasks.length > 0 && (
+            <div className="pagination">
+              {Array.from(
+                { length: Math.ceil(filteredTasks.length / tasksPerPage) },
+                (_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => paginate(index + 1)}
+                    className="page-button"
+                  >
+                    {index + 1}
+                  </button>
+                )
+              )}
+            </div>
+          )}
 
-        <Link to="/addtask" className="add-button">
-          Add Task
-        </Link>
-      </div>
+          <Link to="/addtask" className="add-button">
+            Add Task
+          </Link>
+        </div>
       </div>
     </div>
   );
